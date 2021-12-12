@@ -7,6 +7,7 @@ function App() {
   const [en, setEng] = useState({ display: "block" });
   const [nl, setNl] = useState({ display: "none" });
   const [fr, setFr] = useState({ display: "none" });
+  const [state, setState] = useState(false);
 
   let logoRef = useRef(null);
   let textRef = useRef(null);
@@ -14,7 +15,6 @@ function App() {
   let frflagRef = useRef(null);
   let enflagRef = useRef(null);
   let flagsRef = useRef(null);
-  const [state, setState] = useState(false);
   // const handleExpand = () => {
   //   TweenMax.to(nlflagRef, 0.2, {
   //     width: "125%",
@@ -218,5 +218,5 @@ function App() {
     </div>
   );
 }
-
+// https://www.youtube.com/watch?v=ySXy9BFu9LQ
 export default App;
