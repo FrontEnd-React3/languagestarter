@@ -2,6 +2,10 @@ import "./start.css";
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { TweenMax, Power3 } from "gsap";
+import Page1 from "./LanguageComponents/page1";
+import Page2 from "./LanguageComponents/page2";
+import Page3 from "./LanguageComponents/page3";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   const [en, setEng] = useState({ display: "block" });
@@ -69,7 +73,17 @@ function App() {
 
   return (
     <div className="App flex">
-      <div className="content flex">
+      <Router>
+        <Routes>
+          <Route exact path="/" LangChooser/>
+          <Route exact path="En" element={<Page1 />} />
+          <Route exact path="Nl" element={<Page2 />} />
+          <Route exact path="Fr" element={<Page3 />} />
+        </Routes>
+
+      
+      <div className="content flex">          <Link to="/LangChooser">
+
         <img
           className="neallogo"
           alt="logo"
@@ -77,7 +91,7 @@ function App() {
             logoRef = el;
           }}
           src="img/logo.png"
-        />
+        /></Link>
         <h4
           ref={el => {
             textRef = el;
@@ -214,7 +228,9 @@ function App() {
             />
           </div>
         </div>
-      </div>
+      </div>          <Link to="En">Page 1</Link>
+          <Link to="Nl">Page 2</Link>
+          <Link to="Fr">Page 3</Link></Router>
     </div>
   );
 }
